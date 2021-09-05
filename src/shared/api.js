@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 
 // Auth State
@@ -29,9 +29,9 @@ export function saveQuiz(user, allQs) {
 export function useTests(user) {
   const [isLoading, setIsLoading] = useState(true);
   const [tests, setTests] = useState(null);
-  const ref = firebase.database().ref(`/tests/${user.uid}`);
   const uid = user.uid;
   useEffect(() => {
+    const ref = firebase.database().ref(`/tests/${uid}`);
     ref.on("value", (s) => {
       setTests(s.val() || {});
       setIsLoading(false);

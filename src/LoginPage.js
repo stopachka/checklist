@@ -46,6 +46,7 @@ export default function LoginPage() {
                 <a
                   href="https://stopa.io"
                   target="_blank"
+                  rel="noreferrer" 
                   className="underline">
                   Stopa
                 </a>{" "}
