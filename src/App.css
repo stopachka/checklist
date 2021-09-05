@@ -1,0 +1,18 @@
+.loading-pulse {
+  animation: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+@layer components { 
+  .text-table-heading {
+    @apply font-semibold text-gray-400 uppercase tracking-wider whitespace-nowrap;
+  }
+}
