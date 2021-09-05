@@ -1,13 +1,20 @@
 import "./App.css";
 import { useAuthState } from "./shared/api";
 import FullScreenLoading from "./shared/FullScreenLoading";
+import LoginPage from "./LoginPage";
+import UserContext from "./shared/UserContext";
+import Dashboard from "./Dashboard";
 
 const App = () => {
   const [isLoading, user] = useAuthState();
   if (isLoading) {
     return <FullScreenLoading />;
   }
-  return <div>Hello world!</div>
+  return (
+    <UserContext.Provider value={user}>
+      {user ? <Dashboard /> : <LoginPage />}
+    </UserContext.Provider>
+  );
 };
 
 const AppContainer = () => (

@@ -15,3 +15,28 @@ export function useAuthState() {
   }, []);
   return [isLoading, user];
 }
+
+// Quiz
+// ----------
+
+export function saveQuiz(user, allQs) {
+  return firebase
+    .database()
+    .ref(`/tests/${user.uid}/${Date.now()}/qs`)
+    .set(allQs);
+}
+
+export function useTests(user) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [tests, setTests] = useState(null);
+  const ref = firebase.database().ref(`/tests/${user.uid}`);
+  const uid = user.uid;
+  useEffect(() => {
+    ref.on("value", (s) => {
+      setTests(s.val() || {});
+      setIsLoading(false);
+    });
+    return () => ref.off();
+  }, [uid]);
+  return [isLoading, tests];
+}
