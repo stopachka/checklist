@@ -230,12 +230,12 @@ export default function ChecklistPage() {
   const isBackValid = qIdx > 0;
   const isNextValid = currentStep && currentStep.a;
   return (
-    <div className="max-w-sm mx-auto flex flex-col justify-between flex-1">
-      <div className="flex-1 flex flex-col space-y-4">
+    <div className="max-w-sm mx-auto space-y-4">
+      <div className="space-y-4">
         <ProgressBar perc={percCompleted} />
-        <div className="px-4 space-y-4 flex-1">
+        <div className="px-4 space-y-4">
           {isAnsweringQuestion ? (
-            <>
+            <div key={currentStep.q}>
               <QuestionHeader q={currentStep.q} />
               <Answers
                 activeAnswer={currentStep.a}
@@ -245,7 +245,7 @@ export default function ChecklistPage() {
                   setStep(nextStep);
                 }}
               />
-            </>
+            </div>
           ) : (
             <DoneScreen
               score={score}
@@ -258,7 +258,7 @@ export default function ChecklistPage() {
           )}
         </div>
       </div>
-      <div className="px-4 mb-4 flex">
+      <div className="px-4 mb-4 flex h-8">
         {isBackValid && (
           <Button
             className="text-sm px-3 py-1"

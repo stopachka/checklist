@@ -35,19 +35,23 @@ function Navigation() {
 export default function Dashboard() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
-        <div className="flex-1 flex">
-          <Switch>
-            <Route exact strict path="/stats">
-              <StatsPage />
-            </Route>
-            <Route exact strict path="/">
-              <ChecklistPage />
-            </Route>
-            <Redirect to="/"></Redirect>
-          </Switch>
+      <div className="flex flex-col min-h-screen">
+        <div className="flex-1">
+          <div className="overflow-y-scroll">
+            <Switch>
+              <Route exact strict path="/stats">
+                <StatsPage />
+              </Route>
+              <Route exact strict path="/">
+                <ChecklistPage />
+              </Route>
+              <Redirect to="/"></Redirect>
+            </Switch>
+          </div>
         </div>
-        <Navigation />
+        <div>
+          <Navigation />
+        </div>
       </div>
     </Router>
   );
