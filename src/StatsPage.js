@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { useTests } from "./shared/api";
-import FullScreenLoading from "./shared/FullScreenLoading";
 import { calcScore } from "./shared/quizUtils";
 import UserContext from "./shared/UserContext";
 
@@ -8,7 +7,7 @@ export default function StatsPage() {
   const user = useContext(UserContext);
   const [isLoading, tests] = useTests(user);
   if (isLoading) {
-    return <FullScreenLoading />;
+    return <div className="max-w-sm mx-auto p-4 space-y-4 flex-1">...</div>
   }
 
   const dateAndScore = Object.entries(tests)

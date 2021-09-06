@@ -18,8 +18,10 @@ const App = () => {
 };
 
 const AppContainer = () => (
-  <div className="relative bg-gray-900 min-h-screen min-w-screen text-white antialiased">
-    <App />
+  <div className="bg-gray-900 absolute inset-0 min-w-screen text-white antialiased">
+    <div className="relative h-full">
+      <App />
+    </div>
   </div>
 );
 
