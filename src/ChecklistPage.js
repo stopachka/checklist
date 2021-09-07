@@ -5,7 +5,7 @@ import UserContext from "./shared/UserContext";
 import { useHistory } from "react-router-dom";
 import { calcScore } from "./shared/quizUtils";
 import { useEffect } from "react/cjs/react.development";
-import Mousetrap from "mousetrap";
+const Mousetrap = require("mousetrap");
 
 const makeFormData = () => [
   {
