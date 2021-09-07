@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { saveQuiz } from "./shared/api";
 import Button from "./shared/Button";
 import UserContext from "./shared/UserContext";
 import { useHistory } from "react-router-dom";
 import { calcScore } from "./shared/quizUtils";
-import { useEffect } from "react/cjs/react.development";
-const Mousetrap = require("mousetrap");
+import Mousetrap from "mousetrap";
 
 const makeFormData = () => [
   {
