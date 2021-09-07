@@ -18,7 +18,7 @@ const App = () => {
 };
 
 const AppContainer = () => (
-  <div className="bg-gray-900 absolute inset-0 min-w-screen text-white antialiased">
+  <div className="bg-gray-900 absolute inset-0 min-w-screen text-white antialiased overflow-y-scroll">
     <div className="relative h-full">
       <App />
     </div>

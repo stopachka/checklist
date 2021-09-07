@@ -1,18 +1,31 @@
 import firebase from "firebase/app";
 import Button from "./shared/Button";
 
+function Link(props) {
+  return (
+    <a target="_blank" rel="noreferrer" className="underline" {...props} />
+  );
+}
+
 export default function LoginPage() {
   return (
     <div className="px-4 py-4 space-y-4 max-w-sm mx-auto">
       <div className="text-xl font-bold">Mental Check</div>
       <div className="space-y-4">
         <p>
-          I've been a big fan of David Burn's Feeling Good. This is a handy site
-          for his depression checklist.
+          I've been a big fan of David Burn's{" "}
+          <Link href="https://www.amazon.com/Feeling-Good-New-Mood-Therapy/dp/0380810336">
+            Feeling Good
+          </Link>
+          . If you ever find yourself in a blue mood, this book is a goldmine of
+          ideas.
         </p>
         <p>
-          If you're feeling blue, you can get a sense of the severity. The test
-          will save, so you can see how your score changes over time.
+          In the book, he has a "Depression Checklist". You go through 20 or so
+          questions, and get a score. This score can indiciate to you the
+          severity of your mood. I made this app to make it easy to take that
+          test, and to save the scores. This way, you can look over and see how
+          your mood is changing over time.
         </p>
         <Button
           className="px-4 py-2 text-l"
@@ -43,14 +56,12 @@ export default function LoginPage() {
             <div className="space-y-2">
               <h3 className="font-bold">Who are you?</h3>
               <p>
-                <a
-                  href="https://stopa.io"
-                  target="_blank"
-                  rel="noreferrer" 
-                  className="underline">
+                <Link
+                  href="https://stopa.io">
                   Stopa
-                </a>{" "}
-                : )
+                </Link>
+                , founder of{" "}
+                <Link href="https://consistent.fit">Consistent Fitness</Link>
               </p>
             </div>
           </div>
