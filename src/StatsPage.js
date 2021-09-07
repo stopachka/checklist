@@ -16,16 +16,16 @@ export default function StatsPage() {
       return [new Date(+at), calcScore(test.qs)];
     });
   return (
-    <div className="max-w-sm mx-auto p-4 space-y-4 flex-1">
-      <table className="table-auto flex-1 space-y-2 flex">
+    <div className="max-w-sm mx-auto p-4 space-y-4">
+      <table className="table-auto w-full space-y-2">
         {dateAndScore.length ? (
           dateAndScore.map(([date, score]) => {
             return (
-              <tr key={+date} className="flex flex-1">
-                <td className="flex-1 font-semibold">
+              <tr key={+date}>
+                <td className="font-semibold">
                   {date.toLocaleDateString("en-US")}
                 </td>
-                <td className="flex-1 text-right font-semibold">{score}</td>
+                <td className=" text-right font-semibold">{score}</td>
               </tr>
             );
           })

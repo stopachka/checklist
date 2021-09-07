@@ -4,6 +4,8 @@ import Button from "./shared/Button";
 import UserContext from "./shared/UserContext";
 import { useHistory } from "react-router-dom";
 import { calcScore } from "./shared/quizUtils";
+import { useEffect } from "react/cjs/react.development";
+import Mousetrap from "mousetrap";
 
 const makeFormData = () => [
   {
@@ -229,6 +231,20 @@ export default function ChecklistPage() {
   const isAnsweringQuestion = qIdx < allQs.length;
   const isBackValid = qIdx > 0;
   const isNextValid = currentStep && currentStep.a;
+  const onAnswer = (a) => {
+    setFormData(updateAnswer(allQs, qIdx, a));
+    const nextStep = incStep(allQs, qIdx);
+    setStep(nextStep);
+  };
+  useEffect(() => {
+    Mousetrap.bind(["0", "1", "2", "3", "4"], (x) => {
+      if (!isAnsweringQuestion) return;
+      onAnswer(ANSWERS[+x.key]);
+    });
+    return () => {
+      Mousetrap.reset();
+    };
+  });
   return (
     <div className="max-w-sm mx-auto space-y-4">
       <div className="space-y-4">
@@ -237,14 +253,7 @@ export default function ChecklistPage() {
           {isAnsweringQuestion ? (
             <div key={currentStep.q}>
               <QuestionHeader q={currentStep.q} />
-              <Answers
-                activeAnswer={currentStep.a}
-                onAnswer={(a) => {
-                  setFormData(updateAnswer(allQs, qIdx, a));
-                  const nextStep = incStep(allQs, qIdx);
-                  setStep(nextStep);
-                }}
-              />
+              <Answers activeAnswer={currentStep.a} onAnswer={onAnswer} />
             </div>
           ) : (
             <DoneScreen
