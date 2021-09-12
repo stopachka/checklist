@@ -56,11 +56,7 @@ export default function LoginPage() {
             <div className="space-y-2">
               <h3 className="font-bold">Who are you?</h3>
               <p>
-                <Link
-                  href="https://stopa.io">
-                  Stopa
-                </Link>
-                , founder of{" "}
+                <Link href="https://stopa.io">Stopa</Link>, founder of{" "}
                 <Link href="https://consistent.fit">Consistent Fitness</Link>
               </p>
             </div>

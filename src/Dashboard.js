@@ -6,22 +6,47 @@ import {
 } from "react-router-dom";
 import { Redirect } from "react-router";
 import ChecklistPage from "./ChecklistPage";
-import StatsPage from "./StatsPage";
+import LogPage from "./LogPage";
 
 function Navigation() {
   return (
     <div>
-      <div className="w-full h-15"></div>
-      <div className="bg-gray-900 z-50 py-3 absolute bottom-0 inset-x-0 max-w-md mx-auto h-15">
-        <div className="flex border border-gray-700">
+      <div className="w-full h-12"></div>
+      <div
+        className="
+          bg-gray-900 
+          z-50 
+          py-3 
+          absolute 
+          bottom-0 
+          inset-x-0
+          max-w-md 
+          mx-auto 
+          h-15">
+        <div className="flex border-gray-700">
           {[
-            ["Home", "/"],
-            ["Stats", "/stats"],
+            ["Quiz", "/"],
+            ["Thoughts", "/thoughts"],
+            ["Log", "/log"],
+            ["Distortions", "/distortions"],
           ].map(([label, pathname]) => {
             return (
               <NavLink
                 key={pathname}
-                className="cursor-pointer flex-1 font-semibold hover:bg-gray-600 text-center px-10 py-4"
+                className="
+                  cursor-pointer 
+                  font-semibold 
+                  text-center
+                  h-12
+                  flex-1
+                  flex 
+                  items-center
+                  justify-center
+                  uppercase
+                  tracking-wider
+                  text-sm
+                  px-4
+                "
                 to={pathname}
                 activeClassName="bg-gray-700"
                 exact={true}>
@@ -39,8 +64,8 @@ export default function Dashboard() {
   return (
     <Router>
       <Switch>
-        <Route exact strict path="/stats">
-          <StatsPage />
+        <Route exact strict path="/log">
+          <LogPage />
         </Route>
         <Route exact strict path="/">
           <ChecklistPage />

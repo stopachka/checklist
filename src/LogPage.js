@@ -3,7 +3,7 @@ import { useTests } from "./shared/api";
 import { calcScore } from "./shared/quizUtils";
 import UserContext from "./shared/UserContext";
 
-export default function StatsPage() {
+export default function LogPage() {
   const user = useContext(UserContext);
   const [isLoading, tests] = useTests(user);
   if (isLoading) {
