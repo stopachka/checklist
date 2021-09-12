@@ -40,3 +40,28 @@ export function useTests(user) {
   }, [uid]);
   return [isLoading, tests];
 }
+
+// Thoughts
+// ----------
+
+export function saveThought(user, data) {
+  return firebase
+    .database()
+    .ref(`/thoughts/${user.uid}/${Date.now()}`)
+    .set(data);
+}
+
+export function useThoughts(user) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [thoughts, setThoughts] = useState(null);
+  const uid = user.uid;
+  useEffect(() => {
+    const ref = firebase.database().ref(`/thoughts/${uid}`);
+    ref.on("value", (s) => {
+      setThoughts(s.val() || {});
+      setIsLoading(false);
+    });
+    return () => ref.off();
+  }, [uid]);
+  return [isLoading, thoughts];
+}

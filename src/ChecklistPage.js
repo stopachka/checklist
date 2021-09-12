@@ -259,7 +259,7 @@ export default function ChecklistPage() {
               score={score}
               onSave={() => {
                 saveQuiz(user, allQs).then(() => {
-                  history.push("/stats");
+                  history.push("/log");
                 });
               }}
             />

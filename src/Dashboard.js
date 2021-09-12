@@ -7,17 +7,19 @@ import {
 import { Redirect } from "react-router";
 import ChecklistPage from "./ChecklistPage";
 import LogPage from "./LogPage";
+import DistortionsPage from "./DistortionsPage";
+import ThoughtsPage from "./ThoughtsPage";
 
 function Navigation() {
   return (
     <div>
-      <div className="w-full h-12"></div>
+      <div className="w-full h-16"></div>
       <div
         className="
           bg-gray-900 
           z-50 
           py-3 
-          absolute 
+          fixed
           bottom-0 
           inset-x-0
           max-w-md 
@@ -66,6 +68,12 @@ export default function Dashboard() {
       <Switch>
         <Route exact strict path="/log">
           <LogPage />
+        </Route>
+        <Route exact strict path="/thoughts">
+          <ThoughtsPage />
+        </Route>
+        <Route exact strict path="/distortions">
+          <DistortionsPage />
         </Route>
         <Route exact strict path="/">
           <ChecklistPage />

@@ -23,9 +23,12 @@ export default function LoginPage() {
         <p>
           In the book, he has a "Depression Checklist". You go through 20 or so
           questions, and get a score. This score can indiciate to you the
-          severity of your mood. I made this app to make it easy to take that
-          test, and to save the scores. This way, you can look over and see how
-          your mood is changing over time.
+          severity of your mood.
+        </p>
+        <p>
+          I made this app to make it easy to take that test, and to save the
+          scores. This way, you can look over and see how your mood is changing
+          over time.
         </p>
         <Button
           className="px-4 py-2 text-l"
